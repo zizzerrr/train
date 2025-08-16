@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>موقع تجريبي - XSS</title>
+</head>
+<body style="font-family: Arial; text-align: center; margin-top: 50px;">
+    <h1>🔍 ابحث هنا</h1>
+    <form method="GET">
+        <input type="text" name="q" placeholder="اكتب أي حاجة هنا">
+        <button type="submit">بحث</button>
+    </form>
+
+    <hr>
+
+    <?php
+    if (isset($_GET['q'])) {
+        $search = $_GET['q'];
+        echo "<h2>نتيجة البحث: $search</h2>";
+    }
+    ?>
+</body>
+</html>
